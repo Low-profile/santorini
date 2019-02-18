@@ -1,6 +1,6 @@
 # santorini
 
-main.scala contains the code of the santorini player, which apparently is wrote in Scala.
+main.scala contains the code of the santorini player, which apparently is written in Scala.
 
 player_script is the script to run the player
 
