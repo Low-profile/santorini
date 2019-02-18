@@ -1,0 +1,16 @@
+#!/bin/sh
+# Author: Simon Redman
+# Date: 12 February 2019
+# Description: Executes the named jar file in the same folder as this script resides (NOT the
+#              current working directory)
+
+JAR_FILENAME="santorini.jar"
+
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+JAR=${SCRIPTPATH}/${JAR_FILENAME}
+DEBUG="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5009"
+
+chmod +x ${JAR}
+exec java -jar ${JAR} # Use this line for non-debugging execution
+# exec java ${DEBUG} -jar ${JAR} # Use this line to cause the program to pause and wait for a debugger to attach
